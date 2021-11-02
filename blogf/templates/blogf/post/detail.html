@@ -1,0 +1,26 @@
+{% extends "blogf/base.html" %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                {{ post.title }}
+            {% endblock %}
+            <link href='{% static "css/blog.css" %}' rel='stylesheet'>
+
+        </title>
+    </head>
+    <body>
+        <div id='content'>
+            {% block content %}
+                <h1> {{ post.title }} </h1>
+                <p class='date'>
+                    Published {{ post.publish }} by {{ post.author }}
+                </p>
+                {{ post.body|linebreaks }}
+            {% endblock %}
+        </div>
+    </body>
+</html>
